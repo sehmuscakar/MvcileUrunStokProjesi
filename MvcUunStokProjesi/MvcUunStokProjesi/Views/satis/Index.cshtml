@@ -1,0 +1,49 @@
+﻿@model MvcUunStokProjesi.Models.Entity.tblsatişlar
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<!--popup modal kullanımı -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+    satış yap
+
+</button>
+
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> satiş yapma ekranı  </h2>
+            </div>
+            <form  method="post" action="/satis/yenisatis">
+                <div class="modal-body">
+                    <!--gövde kısmı-->
+                    <label>Ürün id</label>
+                    @Html.TextBoxFor(m => m.urun, new { @class = "form-control" })
+                    <br />
+                    <label>
+                        Müşteri id
+                    </label>
+                    @Html.TextBoxFor(m => m.musteri, new { @class = "form-control" })
+                    <br />
+                    <label>
+                        Adet
+                    </label>
+                    @Html.TextBoxFor(m => m.adet, new { @class = "form-control" })
+                    <br />
+                    <label>
+                        Fiyat
+                    </label>
+                    @Html.TextBoxFor(m => m.fiyat, new { @class = "form-control" })
+                    <br />
+
+                    <button type="submit" class="btn btn-info">Satış İşlemi Yap </button> <!--type="submit": kabul yani -->
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button> <!-- danger : vazgec anlamında bu buton ,data-dismiss="modal": modal ımızı iptal et anlamında -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

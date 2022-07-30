@@ -1,0 +1,54 @@
+﻿@using MvcUunStokProjesi.Models.Entity;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<tblkotegoriler> 
+    <!-- bu yukarda model oluşturduk index sayfasinda tblkategorileri listeleyeck model oluştursun diye  -->
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<table class="table  table-bordered" >   <!--class="table table-bordered "  BU BOOTSTRAP TAN ÖZELİĞİ -->
+
+
+    <tr>
+        <th>
+            KATEGORİ ID
+        </th>
+        <th>
+            KATEGORİ ADI
+        </th>
+        <th>
+            SİL
+        </th>
+        <th>
+            GÜNCELLE
+        </th>
+
+    </tr>
+    <tbody>
+        <!--bu ana grupdaki öğeleri gruplamak için kulanılır -->
+
+        @foreach (var ktgr in Model)
+        {
+
+            <!-- döngü veya değişken vb tanımlamak için   et  işareti kulanılır ,model de yukardaki model den geldi -->
+        <tr>
+            <!--satır oluşur -->
+            <th>
+                <!--sutun oluşur -->
+                @ktgr.kategoriid
+            </th>
+            <td>
+                @ktgr.kategoriad
+            </td>
+            <td > <a href="/kategori/sil/@ktgr.kategoriid " class="btn btn-danger" >Sil </a></td> 
+            <td> <a href="/kategori/kategorigetir/@ktgr.kategoriid" class="btn btn-success">GÜNCELLE </a></td> <!--bu adresler controler deki adresler -->
+        </tr>
+        }
+
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new { sayfa}))
+
+<a href="/kategori/yenikategori/" class="btn btn-primary" > YENİ KATEGORİ EKLE</a>

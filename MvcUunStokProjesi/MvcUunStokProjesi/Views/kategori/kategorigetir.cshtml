@@ -1,0 +1,29 @@
+﻿@model MvcUunStokProjesi.Models.Entity.tblkotegoriler
+<!-- yukarda hangi tablo ile işlem yapacaksan yukarda model olarak tanımla -->
+@{
+    ViewBag.Title = "kategorigetir";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("guncelle", "kategori", FormMethod.Post))// guncelle gidecek sonra kategoriye sonra post olayı olacak
+
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.kategoriid)
+        @Html.TextBoxFor(m => m.kategoriid, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(m => m.kategoriad)
+        @Html.TextBoxFor(m => m.kategoriad, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Kategori Güncelle</button>
+    </div>
+}
+
+
+
+

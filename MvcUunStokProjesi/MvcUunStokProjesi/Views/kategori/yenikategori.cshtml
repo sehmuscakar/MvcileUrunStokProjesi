@@ -1,0 +1,27 @@
+﻿@model MvcUunStokProjesi.Models.Entity.tblkotegoriler
+@{
+    ViewBag.Title = "yenikategori";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post"> <!-- butona basmak post işlemi sayılır bu yüzden post bunu yap kesin yani -->
+   @* <div>
+        <label>Kategori Adı </label>
+    <input type="text" class="form-control" name="kategoriad"/> <!--name kısmı veritabanı ismi ile aynı olması lazım -->
+    </div>
+   *@
+
+    <div>
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(m=>m.kategoriad ,new {@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.kategoriad,"",new {Style="color:red"}) <!-- bunun controler kısmında ki kısmı daki kodları da yazman lazım -->
+
+    </div>
+    
+    <div style="margin-top:15px">
+
+        <button class="btn btn-info"> Kategori Ekle  </button>
+
+    </div>
+</form>

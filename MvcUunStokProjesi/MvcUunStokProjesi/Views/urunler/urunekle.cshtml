@@ -1,0 +1,52 @@
+﻿@model MvcUunStokProjesi.Models.Entity.tblurunler
+@{
+    ViewBag.Title = "urunekle";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+
+    <div>
+
+        <label>Ürün Adı</label>
+        <input type="text" class="form-control" name="urunad"  required=""  maxlength="30" placeholder="Ürün Adını Yazın"/>
+
+    </div>
+    <div>
+
+        <label>Markası</label>
+        <input type="text" class="form-control" name="marka" required="" placeholder="Markayı Yazın" />
+
+    </div>
+
+
+
+    <div>
+
+        <label>Kategori Seçiniz</label>
+        @Html.DropDownListFor(m => m.tblkotegoriler.kategoriid, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })  <!-- bu linq sorgusu urunlercontroler da yazdığımız kod ta etkili yöntemi öğren  -->
+        <!-- DropDownListFor ile verileri veritabanından çektik yukarda üc kısım var birincisi linq yüntemi ile kategori adı çekecez ,ikincisi listeleme yöntemi ile viewbag.dgr den liste yi seçecek 
+            -->
+    </div>
+
+    <div>
+
+        <label>Fiyatı</label>
+        <input type="text" class="form-control" name="fiyat" required="" placeholder="Fiyatı Yazın" />
+
+    </div>
+
+
+    <div>
+
+        <label>Stok Adet </label>
+        <input type="text" class="form-control" name="stok" required="" placeholder="Stok Adetini Yazın" />
+
+    </div>
+
+   <div style="margin-top:15px" >
+       <button class="btn btn-info" >Ürün Ekle </button>
+   </div>
+
+</form>
+

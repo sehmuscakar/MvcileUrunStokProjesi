@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mvc ile  Ürün Stok Prejesi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default" style="background-color:black" >
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:aliceblue">
+                <a class="navbar-brand" href="#ŞehmusÇakar" style="font-size:large"> <b> <i>Mvc ile  Ürün Stok Prejesi</i></b> </a>
+            </div>
+            <ul class="nav navbar-nav" style="font-size:large" >
+                <li><a href="/kategori/index/">Kategoriler</a></li>
+                <li><a href="/urunler/index/">Ürünler</a></li>
+                <li><a href="/musteri/index/"> Müşteriler </a></li>
+                <li><a href="/satis/index/"> Satışlar </a></li>
+               
+            </ul>
+        </div>
+    </nav>
+   
+    <div class="container">
+        @RenderBody() <!-- bunu yazmalısın yazmasan hatta alırsın bu tek değişecek biz dolduracaz  diğer kısmlar sabit layout kısmı olduğu için -->
+    </div>
+
+</body>
+</html>
